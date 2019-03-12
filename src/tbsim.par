@@ -1,0 +1,65 @@
+                  Parameters for TBSIM
+                   ********************
+
+START OF PARAMETERS:
+0                                % type of simulation: 0=gridded locations; 1=scattered locations
+locations.prn                    % if =1: file with coordinates of locations to simulate
+1 2 3                            %        columns for location coordinates
+5.0 5.0 10.0                     % if =0: x0, y0, z0
+20 20 3                          %        nx, ny, nz
+10.0 10.0 10.0                   %        dx, dy, dz
+1 1 1                            % block discretization [1 1 1 for point-support simulation]
+nscore.out                       % file with conditioning data
+1 2 3                            %        columns for coordinates
+6                                %        column for Gaussian data
+-90  90                          %        trimming limits for Gaussian data
+nscore.trn                       % file with conversion table [raw-Gaussian]
+0.0 10.0                         % minimum and maximum values for untransformed variable
+1.0 5.0                          % parameters for lower()-tail and upper()-tail extrapolation
+19 0.1                            % number of nested structures, nugget effect
+1 0.45 100 100 150 0 0 0 1 1000  %        1st structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+2 0.45 100 100 1000000000 0 0 0 1 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+3 0.45 100 100 1000000000 0 0 0 1 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+4 0.45 100 100 150 0 0 0 1 1000  %        1st structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+4.5 0.45 100 100 150 0 0 0 1 1000  %        1st structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+5 0.45 100 100 1000000000 0 0 0 1 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+6 0.45 100 100 1000000000 0 0 0 1 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+7 0.45 100 100 150 0 0 0 1 1000  %        1st structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+8 0.45 100 100 1000000000 0 0 0 1 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+9 0.45 100 100 1000000000 0 0 0 1 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+9.5 0.45 100 100 150 0 0 0 1 1000  %        1st structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+10 0.45 100 100 1000000000 0 0 0 1 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+11 0.45 100 100 150 0 0 0 1 1000  %        1st structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+12 0.45 100 100 1000000000 0 0 0 1 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+13 0.45 100 100 150 0 0 0 1 1000  %        1st structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+13.1 0.45 100 100 1000000000 0 0 0 1 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+13.5 0.45 100 100 1000000000 0 0 0 1 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+14 0.45 100 100 150 0 0 0 1 1000  %        1st structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+15 0.45 100 100 1000000000 0 0 0 2 1000  %        2nd structure: it cc a1 a2 a3 ang1 ang2 ang3 b nlines
+10                               % number of realizations
+9784498                          % seed for random number generation
+100 100 150                      % maximum search radii in the rotated system()
+0 0 0                            % angles for search ellipsoid()
+1                                % divide in octants? 1=yes, 0=no
+4                                % optimal number of data per octant [if octant=1] or in total [if 0]
+tbsim.out                        % name of output file
+3                                % number of decimals for values in the output file
+1                                % create a header in the output file? 1=yes, 0=no
+5000                             % maximum number of locations to simulate simultaneously
+
+Available model types:
+        1: spherical
+        2: exponential
+        3: gamma (parameter b > 0)
+        4: stable [parameter b < 2]
+        5: cubic
+        6: Gaussian
+        7: cardinal sine
+        8: J-Bessel [parameter b > 0.5]
+        9: K-Bessel [parameter b > 0]
+       10: generalized Cauchy [parameter b > 0]
+       11: exponential sine
+       12: linear
+       13: power [exponent b > 0]
+       14: mixed power [exponent b <= 2]
+       15: spline (exponent b = even integer)
