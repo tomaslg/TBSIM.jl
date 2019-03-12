@@ -1,4 +1,4 @@
-## TBSIM.jl
+##TBSIM.jl
 
 #*TBSIM.jl* is a Julia package that implements a wide range of Gaussian field sampling methods.
 
@@ -59,7 +59,8 @@ using TBSIM
 
 uncond=[2,5,8];#index of points that'll affect the support of the conditional simulation
 cond=[1,3,4,6,7,9];#index of points that will be sampled a-posteriori
-x=[ 1. 1. 1. ; 1. 2. 1. ; 1. 3. 1. ; 2. 1. 1. ; 2. 2. 1. ; 2. 3. 1. ; 3. 1. 1. ; 3. 2. 1. ; 3. 3. 1.];#Matrix of points
+x=[ 1. 1. 1. ; 1. 2. 1. ; 1. 3. 1. ; 2. 1. 1. ; 2. 2. 1. ; 2. 3. 1. ; 3. 1. 1. ; 3. 2. 1. ; 3. 3. 1.];
+#Matrix of points
 ```
 The following calls return an unconditional simulation at the 3D points in matrix x using different variogram structures. 
 ```julia
@@ -115,7 +116,7 @@ w13,pos13=tbsim_power(1,20,20,3,0.,0.,0.,5.,5.,5.)
 
 ```
 
-The call of the function recieves (number of scenarios to sample(1), number of discretizations for the grid on the x(20),y(20),z(3) axis, origen(0.,0.,0.), step (dx,dy,dz) on each axis (5.,5.,5.)), and returns a Float64 with the values of the simulation and the matrix of 3D points. Similarly as in the previous calls, conditional simulations can be sampled like this:
+The call of the function recieves (number of scenarios to sample(1), number of discretizations for the grid on the x(20),y(20),z(3) axis, origen(0.,0.,0.), step (dx,dy,dz) on each axis (5.,5.,5.)), and returns a Float64 with the values of the simulation and an Array{Float64,2} of 3D points. Similarly as in the previous calls, conditional simulations can be sampled like this:
  
 ```julia
 
