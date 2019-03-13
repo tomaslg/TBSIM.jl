@@ -135,6 +135,5 @@ v10,Pos10=tbsim_generalized_Cauchy(1,19,19,3,2.,2.,0.,5.,5.,5.,pos10[uncon,:],w1
 v11,Pos11=tbsim_exponential_sine(1,19,19,3,2.,2.,0.,5.,5.,5.,pos11[uncon,:],w11[uncon])
 v12,Pos12=tbsim_linear(1,19,19,3,2.,2.,0.,5.,5.,5.,pos12[uncon,:],w12[uncon])
 v13,Pos13=tbsim_power(1,19,19,3,2.,2.,0.,5.,5.,5.,pos13[uncon,:],w13[uncon])
-#v14,Pos14=tbsim_mixed_power(1,19,19,3,2.,2.,0.,5.,5.,5.,pos14[uncon,:],w14[uncon])
 
 ```
