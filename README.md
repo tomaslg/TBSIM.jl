@@ -2,17 +2,17 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/covxo242g63naqgm?svg=true)](https://ci.appveyor.com/project/tomaslg/tbsim-jl)
 [![Coverage Status](https://coveralls.io/repos/github/tomaslg/TBSIM.jl/badge.svg?branch=master)](https://coveralls.io/github/tomaslg/TBSIM.jl?branch=master)
 
-##TBSIM.jl
+## TBSIM.jl
 
-##*TBSIM.jl* is a Julia package that implements a wide range of Gaussian field sampling methods.
+## *TBSIM.jl* is a Julia package that implements a wide range of Gaussian field sampling methods.
 
 [Paper](https://www.sciencedirect.com/science/article/pii/S0098300406000549)
 
-##(Original code implemented for Matlab by Authors: Xavier Emery and Christian Lantuéjoul)
+## (Original code implemented for Matlab by Authors: Xavier Emery and Christian Lantuéjoul)
 
-USE: tbsim(simucoord,x0,y0,z0,nx,ny,nz,dx,dy,dz,nd,datacoord,ydata,limits,tableZY,zmin,zmax,tail,model,cc,b,nugget,nlines,nrealiz,seed,radius,angles,octant,ndata,name,nbdecimal,header,ntok)
+# USE: tbsim(simucoord,x0,y0,z0,nx,ny,nz,dx,dy,dz,nd,datacoord,ydata,limits,tableZY,zmin,zmax,tail,model,cc,b,nugget,nlines,nrealiz,seed,radius,angles,octant,ndata,name,nbdecimal,header,ntok)
 
-#INPUT:
+# INPUT:
 simucoord: coordinates of the locations to simulate (void if a grid simulation is required)
 x0,y0,z0: if grid: minimum grid coordinates along x, y and z directions
 nx,ny,nz:          number of grid nodes along x, y and z directions
@@ -144,7 +144,7 @@ v13,Pos13=tbsim_power(1,19,19,3,2.,2.,0.,5.,5.,5.,pos13[uncon,:],w13[uncon])
 
 ```
 
-##This package is not registered, to download it run:
+# This package is not registered, to download it run:
 ```julia
 import(Pkg);Pkg.clone("https://github.com/tomaslg/TBSIM.jl.git")
 ```
