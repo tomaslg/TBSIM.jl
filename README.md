@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/tomaslg/TBSIM.jl.svg?branch=master)](https://travis-ci.org/tomaslg/TBSIM.jl)
+[![Build status](https://ci.appveyor.com/api/projects/status/covxo242g63naqgm?svg=true)](https://ci.appveyor.com/project/tomaslg/tbsim-jl)
+[![Coverage Status](https://coveralls.io/repos/github/tomaslg/TBSIM.jl/badge.svg?branch=master)](https://coveralls.io/github/tomaslg/TBSIM.jl?branch=master)
+
 ##TBSIM.jl
 
 #*TBSIM.jl* is a Julia package that implements a wide range of Gaussian field sampling methods.
@@ -62,7 +66,7 @@ cond=[1,3,4,6,7,9];#index of points that will be sampled a-posteriori
 x=[ 1. 1. 1. ; 1. 2. 1. ; 1. 3. 1. ; 2. 1. 1. ; 2. 2. 1. ; 2. 3. 1. ; 3. 1. 1. ; 3. 2. 1. ; 3. 3. 1.];
 #Matrix of points
 ```
-The following calls return an unconditional simulation at the 3D points in matrix x using different variogram structures. 
+The following calls return an unconditional simulation at the 3D points in matrix x using different variogram structures.
 ```julia
 y1=tbsim_spherical(1,x[uncond,:]);
 y2=tbsim_exponential(1,x[uncond,:]);
@@ -78,7 +82,7 @@ y11=tbsim_exponential_sine(1,x[uncond,:]);
 y12=tbsim_linear(1,x[uncond,:]);
 y13=tbsim_power(1,x[uncond,:]);
 ```
-Then you can sample an scenario of a conditional simulations like this: 
+Then you can sample an scenario of a conditional simulations like this:
 ```julia
 z1=tbsim_spherical(1,x[cond,:],x[uncond,:],y1);
 z2=tbsim_exponential(1,x[cond,:],x[uncond,:],y2);
@@ -97,7 +101,7 @@ z13=tbsim_power(1,x[cond,:],x[uncond,:],y13);
 
 ```
 
-If you want to generate simulations at grid points you may call the functions like as follows: 
+If you want to generate simulations at grid points you may call the functions like as follows:
 ```julia
 
 w1,pos1=tbsim_spherical(1,20,20,3,0.,0.,0.,5.,5.,5.)
@@ -117,7 +121,7 @@ w13,pos13=tbsim_power(1,20,20,3,0.,0.,0.,5.,5.,5.)
 ```
 
 The call of the function recieves (number of scenarios to sample(1), number of discretizations for the grid on the x(20),y(20),z(3) axis, origen(0.,0.,0.), step (dx,dy,dz) on each axis (5.,5.,5.)), and returns a Float64 with the values of the simulation and an Array{Float64,2} of 3D points. Similarly as in the previous calls, conditional simulations can be sampled like this:
- 
+
 ```julia
 
 uncon=[4*i for i=1:Int(floor(length(w13)/4))]
