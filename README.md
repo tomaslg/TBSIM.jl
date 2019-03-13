@@ -4,7 +4,7 @@
 
 ##TBSIM.jl
 
-#*TBSIM.jl* is a Julia package that implements a wide range of Gaussian field sampling methods.
+*TBSIM.jl* is a Julia package that implements a wide range of Gaussian field sampling methods.
 
 [Paper](https://www.sciencedirect.com/science/article/pii/S0098300406000549)
 
