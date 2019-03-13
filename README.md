@@ -13,6 +13,7 @@
 ##### USE: tbsim(simucoord,x0,y0,z0,nx,ny,nz,dx,dy,dz,nd,datacoord,ydata,limits,tableZY,zmin,zmax,tail,model,cc,b,nugget,nlines,nrealiz,seed,radius,angles,octant,ndata,name,nbdecimal,header,ntok)
 
 ## INPUT:
+```julia
 simucoord: coordinates of the locations to simulate (void if a grid simulation is required)
 x0,y0,z0: if grid: minimum grid coordinates along x, y and z directions
 nx,ny,nz:          number of grid nodes along x, y and z directions
@@ -54,7 +55,7 @@ name: name of output file, empty string will not write any.
 nbdecimal: number of decimals for the values in output
 header: create a GSLIB header in the output file? 1=yes, 0=no
 ntok: maximum number of points to keep in memory and simulate simultaneously (optional). This number defines how many locations are projected onto the lines at each step of the simulation.
-
+```
 
 ### Quick start
 
