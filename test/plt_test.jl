@@ -1,4 +1,4 @@
-using TBSIM,Distributions, PyCall
+using #=TBSIM,=#Distributions, PyCall,Debugger
 #ENV["PYTHON"]="/home/tomas/anaconda3/bin/python3.6"
 #"/home/tomas/anaconda3/bin/python3"
 @pyimport matplotlib.pyplot as plt
@@ -36,19 +36,19 @@ y13=tbsim_power(1,x);
 #y14=tbsim_mixed_power(1,x[uncond,:]);
 
 noescenarios=100
-z1=mean(tbsim_spherical(noescenarios,x[cond,:],x[uncond,:],y1[uncond]),dims=2);
-z2=mean(tbsim_exponential(noescenarios,x[cond,:],x[uncond,:],y2[uncond]),dims=2);
-z3=mean(tbsim_gamma(noescenarios,x[cond,:],x[uncond,:],y3[uncond]),dims=2);
-z4=mean(tbsim_stable(noescenarios,x[cond,:],x[uncond,:],y4[uncond]),dims=2);
-z5=mean(tbsim_cubic(noescenarios,x[cond,:],x[uncond,:],y5[uncond]),dims=2);
-z6=mean(tbsim_Gaussian(noescenarios,x[cond,:],x[uncond,:],y6[uncond]),dims=2);
-z7=mean(tbsim_cardinal_sine(noescenarios,x[cond,:],x[uncond,:],y7[uncond]),dims=2);
-z8=mean(tbsim_J_Bessel(noescenarios,x[cond,:],x[uncond,:],y8[uncond]),dims=2);
-z9=mean(tbsim_K_Bessel(noescenarios,x[cond,:],x[uncond,:],y9[uncond]),dims=2);
-z10=mean(tbsim_generalized_Cauchy(noescenarios,x[cond,:],x[uncond,:],y10[uncond]),dims=2);
-z11=mean(tbsim_exponential_sine(noescenarios,x[cond,:],x[uncond,:],y11[uncond]),dims=2);
-z12=mean(tbsim_linear(noescenarios,x[cond,:],x[uncond,:],y12[uncond]),dims=2);
-z13=mean(tbsim_power(noescenarios,x[cond,:],x[uncond,:],y13[uncond]),dims=2);
+z1=mean(tbsim_spherical(noescenarios,x,x .+ 0.000001,y1),dims=2);
+z2=mean(tbsim_exponential(noescenarios,x,x .+ 0.000001,y2),dims=2);
+z3=mean(tbsim_gamma(noescenarios,x,x .+ 0.000001,y3),dims=2);
+z4=mean(tbsim_stable(noescenarios,x,x .+ 0.000001,y4),dims=2);
+z5=mean(tbsim_cubic(noescenarios,x,x .+ 0.000001,y5),dims=2);
+z6=mean(tbsim_Gaussian(noescenarios,x,x .+ 0.000001,y6),dims=2);
+z7=mean(tbsim_cardinal_sine(noescenarios,x,x .+ 0.000001,y7),dims=2);
+z8=mean(tbsim_J_Bessel(noescenarios,x,x .+ 0.000001,y8),dims=2);
+z9=mean(tbsim_K_Bessel(noescenarios,x,x .+ 0.000001,y9),dims=2);
+z10=mean(tbsim_generalized_Cauchy(noescenarios,x,x .+ 0.000001,y10),dims=2);
+z11=mean(tbsim_exponential_sine(noescenarios,x,x .+ 0.000001,y11),dims=2);
+z12=mean(tbsim_linear(noescenarios,x,x .+ 0.000001,y12),dims=2);
+z13=mean(tbsim_power(noescenarios,x,x .+ 0.000001,y13),dims=2);
 #z14=mean(tbsim_mixed_power(10,x[cond,:],x[uncond,:],y14),dims=2);
 
 Labels=["spherical","exponential","gamma","stable","cubic","Gaussian","cardinal_sine","J_Bessel","K_Bessel","generalized_Cauchy","exponential_sine","linear","power"]#,"mixed_power"]
@@ -108,19 +108,19 @@ for ℓ=1:length(Z)
   for i=1:length(f)
     for j=1:length(v)
       for k=1:length(z)
-        if (x[cond,1])[k]==f[i] && (x[cond,2])[k]==v[j]
+        if (x[:,1])[k]==f[i] && (x[:,2])[k]==v[j]
           M[i,j]=round( z[k],digits=3)
           break
         end
-        if k==length(z)
-            for u in uncond
-              if x[u,1]==f[i] && x[u,2]==v[j]
-                M[i,j]=round( exp((Y[ℓ])[u]/2.5),digits=3)
-                break
-              end
-            end
-            # M[i,j]=0.
-        end
+        # if k==length(z)
+        #     for u in uncond
+        #       if x[u,1]==f[i] && x[u,2]==v[j]
+        #         M[i,j]=round( exp((Y[ℓ])[u]/2.5),digits=3)
+        #         break
+        #       end
+        #     end
+        #     # M[i,j]=0.
+        # end
       end
     end
   end

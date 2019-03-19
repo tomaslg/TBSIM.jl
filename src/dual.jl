@@ -40,7 +40,7 @@ function dual(datacoord,ydata,model,cc,b,nugget,model_rotationmatrix,maxorder)
        R = model_rotationmatrix[:,:,i];
        t = datacoord*R;
        t = t*t';
-       h = sqrt(max(0,-2*t+LinearAlgebra.diag(t)*ones(1,n)+ones(n,1)*LinearAlgebra.diag(t)'));
+       h = sqrt.(max.(0,-2*t+LinearAlgebra.diag(t)*ones(1,n)+ones(n,1)*LinearAlgebra.diag(t)'));
 
        # Evaluation of the current basic structure
        C = cova(model[i,1],h,b[i]);

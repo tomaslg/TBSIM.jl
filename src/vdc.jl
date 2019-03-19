@@ -42,28 +42,28 @@ function vdc(nlines,nrealiz,seed)
 
     # binary decomposition of i
     j = i;
-    u = 0;
+    u = zeros(length(i));
     p = 0;
     while (maximum(j) > 0)
       p = p+1;
       t = fix.(j/2);
-      u = u .+ 2*(j/2 - t) ./ (2 .^ p);
+      u = u + (2*(j/2 - t) ./ (2^p));
       j = t;
     end
 
     # ternary decomposition of i
     j = i;
-    v = 0;
+    v = zeros(length(i));
     p = 0;
     while (maximum(j)>0)
       p = p+1;
       t = fix.(j/3);
-      v = v .+ 3*(j/3 - t)./(3 .^ p);
+      v = v + 3*(j/3 - t)./(3 .^ p);
       j = t;
     end
 
     # directing vector of the i-th line
-    x  = [cos.(2*pi*u).*sqrt.(1 .- v.*v) sin.(2*pi*u).*sqrt.(1 .- v.*v) v];
+    x  = [cos.(2*pi*u).*sqrt.(1 .- v.^2) sin.(2*pi*u).*sqrt.(1 .- v.^2) v];
 
     # random rotation
     for k = 1:nrealiz

@@ -6,12 +6,25 @@ module TBSIM
   #   return tbsim(simucoord)
   # end
   # export tbsim_inc
+  export tbsim_spherical
+  export tbsim_exponential
+  export tbsim_gamma
+  export tbsim_stable
+  export tbsim_cubic
+  export tbsim_Gaussian
+  export tbsim_cardinal_sine
+  export tbsim_J_Bessel
+  export tbsim_K_Bessel
+  export tbsim_generalized_Cauchy
+  export tbsim_exponential_sine
+  export tbsim_linear
+  export tbsim_power
   function tbsim_spherical(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [1 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [1 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -20,19 +33,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [1 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [1 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_spherical
   function tbsim_exponential(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [2 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [2 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -41,19 +53,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [2 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [2 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_exponential
   function tbsim_gamma(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [3 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [3 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -62,19 +73,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [3 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [3 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_gamma
   function tbsim_stable(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [4 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [4 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -83,19 +93,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [4 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [4 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_stable
   function tbsim_cubic(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [5 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [5 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -104,19 +113,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [5 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [5 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_cubic
   function tbsim_Gaussian(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [6 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [6 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -125,19 +133,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [6 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [6 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_Gaussian
   function tbsim_cardinal_sine(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [7 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [7 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -146,19 +153,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [7 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [7 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_cardinal_sine
   function tbsim_J_Bessel(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [8 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [8 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -167,19 +173,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [8 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [8 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_J_Bessel
   function tbsim_K_Bessel(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [9 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [9 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -188,19 +193,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [9 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [9 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_K_Bessel
   function tbsim_generalized_Cauchy(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [10 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [10 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -209,19 +213,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [10 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [10 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_generalized_Cauchy
   function tbsim_exponential_sine(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [11 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [11 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -230,19 +233,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [11 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [11 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_exponential_sine
   function tbsim_linear(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [12 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [12 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -251,19 +253,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [12 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [12 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_linear
   function tbsim_power(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
     return tbsim(
         simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
         1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [13 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [13 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok
         )
@@ -272,19 +273,18 @@ module TBSIM
     return tbsim(
         Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
         x0,y0,z0,dx,dy,dz,nd,[-90,90],
-        0.0,10.0,[1.0,5.0],2,0.1,[],
-        [13 0.9 100 100 150 0 0 0 1 1000],
+        0.0,10.0,[1.0,5.0],1,0.0,[],
+        [13 1.0 100 100 150 0 0 0 1 1000],
         9784498,[100 100 150] ,[0 0 0],
         1,4,3,ntok,true
         )
   end
-  export tbsim_power
 #  function tbsim_mixed_power(nrealiz,simucoord,datacoord=[],ydata=[],ntok=5000)
 #    return tbsim(
 #        simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
 #        1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-#        0.0,10.0,[1.0,5.0],2,0.1,[],
-#        [14 0.9 100 100 150 0 0 0 1 1000],
+#        0.0,10.0,[1.0,5.0],1,0.0,[],
+#        [14 1.0 100 100 150 0 0 0 1 1000],
 #        9784498,[100 100 150] ,[0 0 0],
 #        1,4,3,ntok
 #        )
@@ -293,8 +293,8 @@ module TBSIM
 #    return tbsim(
 #        Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
 #        x0,y0,z0,dx,dy,dz,nd,[-90,90],
-#        0.0,10.0,[1.0,5.0],2,0.1,[],
-#        [14 0.9 100 100 150 0 0 0 1 1000],
+#        0.0,10.0,[1.0,5.0],1,0.0,[],
+#        [14 1.0 100 100 150 0 0 0 1 1000],
 #        9784498,[100 100 150] ,[0 0 0],
 #        1,4,3,ntok,true
 #        )
@@ -304,7 +304,7 @@ module TBSIM
   #   return tbsim(
   #       simucoord,datacoord,ydata,nrealiz,200,300,1,##nargin=2,
   #       1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-  #       0.0,10.0,[1.0,5.0],2,0.1,[],
+  #       0.0,10.0,[1.0,5.0],1,0.0,[],
   #       [15 0.45 100 100 150 0 0 0 2 1000],
   #       9784498,[100 100 150] ,[0 0 0],
   #       1,4,3,ntok
@@ -314,7 +314,7 @@ module TBSIM
   #   return tbsim(
   #       Float64[],[],[],nrealiz,nx,ny,nz,##nargin=2,
   #       x0,y0,z0,dx,dy,dz,nd,[-90,90],
-  #       0.0,10.0,[1.0,5.0],2,0.1,[],
+  #       0.0,10.0,[1.0,5.0],1,0.0,[],
   #       [15 0.45 100 100 150 0 0 0 2 1000],
   #       9784498,[100 100 150] ,[0 0 0],
   #       1,4,3,ntok
@@ -324,7 +324,7 @@ module TBSIM
 
   # α=2.5,simucoord=Float64[],datacoord=[],ydata=[],nrealiz = 10,return_a_mapping_to_grades=true,nargin=2,200,300,1,
   #     1.0,1.0,100.0,2.0,2.0,10.0,Int16[1,1,1],[-90,90],
-  #     0.0,10.0,[1.0,5.0],2,0.1,[],
+  #     0.0,10.0,[1.0,5.0],1,0.0,[],
   #     [1 0.45 100 100 150 0 0 0 1 1000; 2 0.45 100 100 1000000000 0 0 0 1 1000],
   #     9784498,[100 100 150] ,[0 0 0],
   #     1,4,3,ntok = 5000

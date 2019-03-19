@@ -21,7 +21,7 @@ function krige(datacoord,coord,model,cc,b,nugget,model_rotationmatrix,maxorder)
     p = size(coord,1);      # number of points to estimate
     nst = size(model,1);    # number of nested structures
 
-    j = floor(gamma(maxorder+4)/gamma(maxorder+1+eps())/6 + 0.1); # number of drift monomials
+    j = Int(floor(gamma(maxorder+4)/gamma(maxorder+1+eps())/6 + 0.1)); # number of drift monomials
     if j>n
       println(" ");
       println("ERROR - Not enough data found in moving neighborhood. Conditioning kriging system is singular");
@@ -54,7 +54,7 @@ function krige(datacoord,coord,model,cc,b,nugget,model_rotationmatrix,maxorder)
 
     end
 
-    k0 = k[:,n+1:n+p]; # right member of the kriging system
+    k0 = k[:,(n+1):(n+p)]; # right member of the kriging system
     k = k[:,1:n];      # left member of the kriging system
     k = k+nugget*Matrix{Float64}(I, n, n);
 

@@ -53,32 +53,51 @@ function Search(datacoord,datavalue,coord,search_rotationmatrix,octant,ndata,nxs
   # println("finish=",finish)
   index = Int.(vcat([0],cumsum(finish - st .+ 1)));
   # println("index=",index)
-  if n_block>0
-    I = zeros(Int32,index[n_block]);
-    for i = 1:n_block
-      if length(I)>0
-        if index[i]+1<=length(I)
-          I[index[i]+1:index[i+1]] = (st[i]):(finish[i]);
-        end
-        # try
-        # catch ee
-        #    if isa(ee,BoundsError)
-        #      println("index[i]+1:index[i+1]=",index[i]+1:index[i+1]);
-        #      println("(st[i]):(finish[i])=",(st[i]):(finish[i]));
-        #      println("i=",i);
-        #      println("size(I)=",size(I));
-        #      println("finish=",finish);
-        #      println("st=",st);
-        #      println("cumsum(finish - st + 1)=",cumsum(finish - st + 1));
-        #      println("n_block=",n_block);
-        #
-        #    end
-        #    error(ee);
-        # end
-      end
-    end
-  else
-    I=[];
+  I = zeros(Int32,index[n_block+1]);
+  for i = 1:n_block
+    # try
+    I[(index[i]+1):index[i+1]] = (st[i]):(finish[i]);
+    # catch ee
+    #   println("I[(index[i]+1):index[i+1]] = (st[i]):(finish[i])");
+    #   println("length(I)=",length(I));
+    #   println("i=",i);
+    #   println("index[i]+1=",index[i]+1);
+    #   println("index[i+1]=",index[i+1]);
+    #   println("st[i]=",st[i]);
+    #   println("finish[i]=",finish[i]);
+    #   println(I[(index[i]+1):index[i+1]]," = ",(st[i]):(finish[i]));
+    #   println(ee);
+    #   exit(1);
+    #   # if isa(ee, DomainError)
+    #   #     sqrt(complex(x[2], 0))
+    #   # elseif isa(y, BoundsError)
+    #   #     sqrt(x)
+    #   # end
+    # end
+          # if n_block>0
+          #
+          #     if length(I)>0
+          #       if index[i]+1<=length(I)
+          #       end
+          #       # try
+          #       # catch ee
+          #       #    if isa(ee,BoundsError)
+          #       #      println("index[i]+1:index[i+1]=",index[i]+1:index[i+1]);
+          #       #      println("(st[i]):(finish[i])=",(st[i]):(finish[i]));
+          #       #      println("i=",i);
+          #       #      println("size(I)=",size(I));
+          #       #      println("finish=",finish);
+          #       #      println("st=",st);
+          #       #      println("cumsum(finish - st + 1)=",cumsum(finish - st + 1));
+          #       #      println("n_block=",n_block);
+          #       #
+          #       #    end
+          #       #    error(ee);
+          #       # end
+          #     end
+          #   end
+          # else
+          #   I=[];
   end
 
 # Select the acceptable neighboring data

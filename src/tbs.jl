@@ -1262,6 +1262,7 @@ function tbsim(
           # Substitution of residuals
           if !isempty(datacoord_i) # samples are found in the kriging neighborhood
             weights = krige(datacoord_i,coord[(i-1)*ng+1:i*ng,:],model,cc,b,nugget+1e-7,model_rotationmatrix,maxorder);
+            # println(weights',"*",residuals_i,"=",weights'*residuals_i);
             simu[(i-1)*ng+1:i*ng,:] = simu[(i-1)*ng+1:i*ng,:] + weights'*residuals_i;
           elseif (flag > 1) # intrinsic model, no conditioning data found
             println(" ");
@@ -1456,6 +1457,7 @@ function tbsim(
           # Substitution of residuals
           if !isempty(datacoord_i) # samples are found in the kriging neighborhood
             weights = krige(datacoord_i,coord[(i-1)*ng+1:i*ng,:],model,cc,b,nugget+1e-7,model_rotationmatrix,maxorder);
+            # println(weights',"*",residuals_i,"=",weights'*residuals_i);
             simu[(i-1)*ng+1:i*ng,:] = simu[(i-1)*ng+1:i*ng,:] + weights'*residuals_i;
             push!(RR,weights'*residuals_i);
           elseif (flag > 1) # intrinsic model, no conditioning data found
