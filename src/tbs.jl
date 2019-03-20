@@ -741,7 +741,7 @@ function tbsim(
       nottoosmall = (interval_number .< max_intervalnumber);
       valid_lines[1:nrealiz*nlines[i],i] = nottoosmall;
       invalid_lines = reshape(1 .- nottoosmall,(nlines[i],nrealiz));
-      total_nugget = total_nugget .+ sum(invalid_lines)*cc[i]./nlines[i];
+      total_nugget = total_nugget .+ sum(invalid_lines,dims=1)*cc[i]./nlines[i];
 
 
     # Exponential covariance model?
@@ -751,7 +751,7 @@ function tbsim(
       w = 3*rand(rng,nlines[i]*nrealiz);
       v[5,:] = v[5,:].*(w.>1);
       v[6,:] = v[6,:].*(w.>1);
-      G = 0.5*sum(v.^2)' * ones(1,3);
+      G = 0.5*sum(v.^2,dims=1)' * ones(1,3);
       lines = lines./G;
       x = extreme_coord*lines';
       sigma[i] = 2*sqrt(3*cc[i]./nlines[i]);
@@ -764,7 +764,7 @@ function tbsim(
       nottoosmall = (interval_number .< max_intervalnumber);
       valid_lines[1:nrealiz*nlines[i],i] = nottoosmall;
       invalid_lines = reshape(1 .- nottoosmall,(nlines[i],nrealiz));
-      total_nugget = total_nugget .+ sum(invalid_lines)*cc[i]./nlines[i];
+      total_nugget = total_nugget .+ sum(invalid_lines,dims=1)*cc[i]./nlines[i];
 
 
     # Gamma covariance model?
@@ -774,7 +774,7 @@ function tbsim(
       w = 3*rand(rng,nlines[i]*nrealiz);
       v[5,:] = v[5,:].*(w.>1);
       v[6,:] = v[6,:].*(w.>1);
-      G = 0.5*(sum(v.^2)'./gamrnd(b[i],1,rng,nlines[i]*nrealiz,1)) * ones(1,3);
+      G = 0.5*(sum(v.^2,dims=1)'./gamrnd(b[i],1,rng,nlines[i]*nrealiz,1)) * ones(1,3);
       lines = lines./G;
       x = extreme_coord*lines';
       sigma[i] = 2*sqrt(3*cc[i]./nlines[i]);
@@ -787,7 +787,7 @@ function tbsim(
       nottoosmall = (interval_number .< max_intervalnumber);
       valid_lines[1:nrealiz*nlines[i],i] = nottoosmall;
       invalid_lines = reshape(1 .- nottoosmall,(nlines[i],nrealiz));
-      total_nugget = total_nugget .+ sum(invalid_lines)*cc[i]./nlines[i];
+      total_nugget = total_nugget .+ sum(invalid_lines,dims=1)*cc[i]./nlines[i];
 
 
     # Stable covariance model with parameter <1?
@@ -800,7 +800,7 @@ function tbsim(
       e = -log(rand(rng,nlines[i]*nrealiz,1));
       f = pi*rand(rng,nlines[i]*nrealiz,1)-pi/2;
       stable = abs( sin(b[i]*(f-pi/2))./(cos(f).^(1 ./ b[i])).*(cos(f-b[i]*(f-pi/2))./e).^((1-b[i])./b[i]) );
-      G = 0.5*(sum(v.^2)'./stable) * ones(1,3);
+      G = 0.5*(sum(v.^2,dims=1)'./stable) * ones(1,3);
       lines = lines./G;
       x = extreme_coord*lines';
       sigma[i] = 2*sqrt(3*cc[i]./nlines[i]);
@@ -813,7 +813,7 @@ function tbsim(
       nottoosmall = (interval_number .< max_intervalnumber);
       valid_lines[1:nrealiz*nlines[i],i] = nottoosmall;
       invalid_lines = reshape(1 .- nottoosmall,(nlines[i],nrealiz));
-      total_nugget = total_nugget .+ sum(invalid_lines)*cc[i]./nlines[i];
+      total_nugget = total_nugget .+ sum(invalid_lines,dims=1)*cc[i]./nlines[i];
 
 
     # Stable model with parameter >1?
@@ -844,7 +844,7 @@ function tbsim(
       nottoosmall = (interval_number .< max_intervalnumber);
       valid_lines[1:nrealiz*nlines[i],i] = nottoosmall;
       invalid_lines = reshape(1 .- nottoosmall,(nlines[i],nrealiz));
-      total_nugget = total_nugget .+ sum(invalid_lines)*cc[i]./nlines[i];
+      total_nugget = total_nugget .+ sum(invalid_lines,dims=1)*cc[i]./nlines[i];
 
 
     # Gaussian covariance model?
@@ -881,7 +881,7 @@ function tbsim(
       w = 3*rand(rng,1,nlines[i]*nrealiz);
       v[5,:] = v[5,:].*(w>1);
       v[6,:] = v[6,:].*(w>1);
-      G = 0.5*(sum(v.^2)'.*sqrt(betarnd(b[i],0.5-b[i],rng,nlines[i]*nrealiz,1))) * ones(1,3);
+      G = 0.5*(sum(v.^2,dims=1)'.*sqrt(betarnd(b[i],0.5-b[i],rng,nlines[i]*nrealiz,1))) * ones(1,3);
       lines = lines./G;
       x = extreme_coord*lines';
       sigma[i] = 2*sqrt(3*cc[i]./nlines[i]);
@@ -893,8 +893,8 @@ function tbsim(
       interval_number = maximum(x,dims=1)' - minimum(x,dims=1)';
       nottoosmall = (interval_number .< max_intervalnumber);
       valid_lines[1:nrealiz*nlines[i],i] = nottoosmall;
-      invalid_lines = reshape(1 .- nottoosmall,nlines[i],nrealiz);
-      total_nugget = total_nugget .+ sum(invalid_lines)*cc[i]./nlines[i];
+      invalid_lines = reshape(1 .- nottoosmall,(nlines[i],nrealiz));
+      total_nugget = total_nugget .+ sum(invalid_lines,dims=1)*cc[i]./nlines[i];
 
 
     # Bessel-K covariance model (b>0.5)?
